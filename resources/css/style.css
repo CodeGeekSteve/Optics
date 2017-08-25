@@ -1,84 +1,157 @@
-html{
+/* Universal Styles */
+
+html {
+  font-family: Helvetica, sans-serif;
   font-size: 18px;
-  line-height: 1.4em;
-    font-family: helvetica;
+  background-color: white;
 }
 
-body{
-  font-family: helvetica;
+body {
+  line-height: 1.4rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
 }
 
 /* Header */
 
-.truncated-menu{
-  visibility: collapse;
-  width: 0;
-}
-
-.banner{
-  background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-5/tortoiseshell-optics/resources/images/glasses-bg.png");
+header {
+  background: url('https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-5/tortoiseshell-optics/resources/images/glasses-bg.png') no-repeat center center ;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-top: 1rem;
   height: 30rem;
-  margin-bottom: 3rem;
 }
 
-.container{
-  width: 960px;
-  margin: auto;
-  color: white;
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: .67em 0;
 }
 
-.company{
+nav {
+  padding: 1rem 0;
   background-color: cadetblue;
+  color: white;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  position: absolute;
-  top: 1rem;
-  width: 960px;
 }
 
-.company img{
-  margin: 0 1rem 0 2rem;
-  height: 1.5rem;
-}
-
-.company div{
+nav div {
   display: flex;
   align-items: center;
 }
 
-.navigation li{
-  list-style-type: none;
-  flex-direction: row;
-  margin:1rem 2rem;
+nav img {
+  height: 1.5rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
 }
 
-.banner-text{
-  padding: 1.5rem 5rem;
+ul {
+  margin-right: 1rem;
+}
+
+ul li {
+  display: inline;
+  padding: 0 1rem;
+}
+
+.truncated-menu {
+  display: none;
+}
+
+header .flex {
+  justify-content: flex-end;
+}
+
+.main-banner {
   background-color: white;
-  width: auto;
-  position: absolute;
-  top: 14rem;
-  margin-left: 28.5rem;
+  padding: 0.75rem 5rem;
+  display: inline-block;
+  margin-top: 10rem;
+  margin-right: -2rem;
+  line-height: 2.4rem;
 }
 
-.banner-text span{
-  color: black;
-  font-weight: bold;
-  line-height: 1.2rem;
-  font-size: 2rem;
+@media only screen and (max-width: 1024px) {
+  header {
+    padding-top: 0;
+    height: 22rem;
+  }
+
+  nav.container {
+    max-width: 100%;
+  }
+
+  .main-banner {
+    padding: 0.75rem 4rem;
+    margin-top: 5rem;
+    margin-right: 2rem;
+  }
+
+  .main-banner h1 {
+    font-size: 1.33rem;
+  }
 }
 
-/* body */
+@media only screen and (max-width: 700px) {
+  .menu ul {
+    display: none;
+  }
 
-.compile{
+  .menu ul.truncated-menu {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  header div span {
+    display: none;
+  }
+
+  header {
+    background-position: 20%;
+    height: 17rem;
+  }
+
+  .main-banner {
+    padding: 0 1rem;
+    margin: 9rem auto 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-banner h1 {
+    font-size: 1rem;
+  }
+}
+
+/* Supporting Sections */
+
+.supporting {
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  font-family: helvetica;
 }
+
+@media only screen and (max-width: 560px) {
+  .supporting {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 3rem;
+  }
+}
+
+/* Service Section */
 
 .service {
   display: flex;
@@ -86,7 +159,7 @@ body{
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  margin:0 3rem 3rem 3rem;
+  margin: 3rem;
   width: 5rem;
   height: 8rem;
 }
@@ -100,23 +173,24 @@ body{
   width: 3.5rem;
 }
 
-/* info */
-
-.supporting{
-  display: flex;
-  font-family: helvetica;
+@media only screen and (max-width: 560px) {
+  .service {
+    height: auto;
+    margin: .77rem;
+    font-size: .77rem;
+  }
 }
+
+/* Info Section */
 
 .info {
   width: 35%;
   margin-right: 5%;
   margin-bottom: 4rem;
-  margin-left: 10%;
 }
 
 .info p {
   padding: 1rem 0;
- color: black;
 }
 
 .title {
@@ -127,26 +201,44 @@ body{
   max-width: 10rem;
 }
 
-/* footer */
+@media only screen and (max-width: 560px) {
+  .info {
+    width: auto;
+  }
 
-.foot{
-  color: black;
+  .info .title {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .info p {
+    padding: 1rem;
+    font-size: .77rem;
+  }
+}
+
+/* Footer */
+
+footer {
   background-color: azure;
-  width: 960px;
-  margin: auto;
-  vertical-align: middle;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
 }
 
-.foot img{
+footer img {
   height: 1.5rem;
-  margin: 4rem 1rem 4rem 4rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
 }
 
-.foot span{
-  vertical-align: middle;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-family: helvetica;
-  position: relative;
-  bottom: 4.45rem;
+@media only screen and (max-width: 560px) {
+  footer {
+    justify-content: center;
+  }
+
+  footer div {
+    display: none;
+  }
 }
